@@ -69,6 +69,10 @@ class UserManagerModel(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.name
 
+    @property
+    def id(self):
+        return self.uid
+
 
     class Meta:
         db_table = 'user_manager'
