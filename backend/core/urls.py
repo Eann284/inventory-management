@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet
+from products.views import ProductViewSet
 from rest_framework_simplejwt.views import TokenRefreshView
 
 # router instance
 router = DefaultRouter()
 
 router.register(r'users', UserViewSet)
+router.register(r'products', ProductViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,4 +35,5 @@ urlpatterns = [
 
     # renews the jwt 
     path('api/token/refresh', TokenRefreshView.as_view(), name='token_refresh',)
+
 ]
